@@ -4,73 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог номеров — Горный воздух</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page">
 
-    <header>
-        <h1>Отель «Горный воздух»</h1>
-        <p>Каталог номеров</p>
+    <header class="header">
+        <h1 class="header__title">Отель «Горный воздух»</h1>
+        <p class="header__subtitle">Каталог номеров</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html">Каталог номеров</a></li>
-            <li><a href="detail.html">Номер «Люкс»</a></li>
-            <li><a href="collection.html">Сравнение номеров</a></li>
-            <li><a href="checkout.html">Бронирование</a></li>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link nav__link--active" href="catalog.html">Каталог номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="detail.html">Номер «Люкс»</a></li>
+            <li class="nav__item"><a class="nav__link" href="collection.html">Сравнение номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="checkout.html">Бронирование</a></li>
         </ul>
     </nav>
 
-    <main>
-        <h2>Доступные номера</h2>
+    <main class="main">
+        <h2 class="main__title">Доступные номера</h2>
 
-        <section>
-            <article>
-                <h3>Стандарт</h3>
-                <img src="images/standard.jpg"
-                     alt="Номер «Стандарт» с двуспальной кроватью и видом на двор"
-                     width="300" height="200">
-                <p>Площадь: 18 м². Кровать: двуспальная. Завтрак: включён.</p>
-                <p>Цена: <strong>3 500 ₽ / ночь</strong></p>
-                <p><a href="detail.html">Подробнее</a></p>
+        <!-- Панель дат — sticky по варианту 13 -->
+        <div class="filters">
+            <form class="filters__form" action="#" method="get">
+                <label class="filters__label" for="date-in">Заезд:</label>
+                <input class="filters__input" type="date" id="date-in" name="date_in">
+                <label class="filters__label" for="date-out">Выезд:</label>
+                <input class="filters__input" type="date" id="date-out" name="date_out">
+                <button class="button button--primary" type="submit">Показать</button>
+            </form>
+        </div>
+
+        <section class="catalog">
+            <article class="card">
+                <div class="card__image-wrapper">
+                    <img class="card__image" src="images/standard.jpg"
+                         alt="Номер «Стандарт» с двуспальной кроватью и видом на двор">
+                    <!-- Бейдж рейтинга — absolute по варианту 13 -->
+                    <span class="card__rating">8.7 Хорошо</span>
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Стандарт</h3>
+                    <p class="card__text">Площадь: 18 м². Кровать: двуспальная. Завтрак: включён.</p>
+                    <p class="card__price">3 500 ₽ / ночь</p>
+                    <a class="card__link" href="detail.html">Подробнее</a>
+                </div>
             </article>
 
-            <article>
-                <h3>Комфорт</h3>
-                <img src="images/comfort.jpg"
-                     alt="Номер «Комфорт» с рабочим столом и креслом"
-                     width="300" height="200">
-                <p>Площадь: 24 м². Кровать: king-size. Завтрак: включён.</p>
-                <p>Цена: <strong>5 200 ₽ / ночь</strong></p>
-                <p><a href="detail.html">Подробнее</a></p>
+            <article class="card">
+                <div class="card__image-wrapper">
+                    <img class="card__image" src="images/comfort.jpg"
+                         alt="Номер «Комфорт» с рабочим столом и креслом">
+                    <span class="card__rating">9.0 Превосходно</span>
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Комфорт</h3>
+                    <p class="card__text">Площадь: 24 м². Кровать: king-size. Завтрак: включён.</p>
+                    <p class="card__price">5 200 ₽ / ночь</p>
+                    <a class="card__link" href="detail.html">Подробнее</a>
+                </div>
             </article>
 
-            <article>
-                <h3>Люкс с видом на горы</h3>
-                <img src="images/lux.jpg"
-                     alt="Люкс с панорамным окном и видом на горы"
-                     width="300" height="200">
-                <p>Площадь: 42 м². Кровать: king-size. Завтрак: включён, джакузи.</p>
-                <p>Цена: <strong>9 800 ₽ / ночь</strong></p>
-                <p><a href="detail.html">Подробнее</a></p>
+            <article class="card">
+                <div class="card__image-wrapper">
+                    <img class="card__image" src="images/lux.jpg"
+                         alt="Люкс с панорамным окном и видом на горы">
+                    <span class="card__rating">9.5 Превосходно</span>
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Люкс с видом на горы</h3>
+                    <p class="card__text">Площадь: 42 м². Кровать: king-size. Завтрак: включён, джакузи.</p>
+                    <p class="card__price">9 800 ₽ / ночь</p>
+                    <a class="card__link" href="detail.html">Подробнее</a>
+                </div>
             </article>
 
-            <article>
-                <h3>Семейный</h3>
-                <img src="images/family.jpg"
-                     alt="Семейный номер с двумя кроватями и диваном"
-                     width="300" height="200">
-                <p>Площадь: 32 м². Кровати: две односпальные + диван. Завтрак: включён.</p>
-                <p>Цена: <strong>6 700 ₽ / ночь</strong></p>
-                <p><a href="detail.html">Подробнее</a></p>
+            <article class="card">
+                <div class="card__image-wrapper">
+                    <img class="card__image" src="images/family.jpg"
+                         alt="Семейный номер с двумя кроватями и диваном">
+                    <span class="card__rating">8.9 Отлично</span>
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Семейный</h3>
+                    <p class="card__text">Площадь: 32 м². Кровати: две односпальные + диван. Завтрак: включён.</p>
+                    <p class="card__price">6 700 ₽ / ночь</p>
+                    <a class="card__link" href="detail.html">Подробнее</a>
+                </div>
             </article>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Отель «Горный воздух». Все права защищены.</p>
-        <p>Телефон: <a href="tel:+79625396668">+7 (962) 539-66-68</a></p>
+    <footer class="footer">
+        <p class="footer__text">© 2026 Отель «Горный воздух». Все права защищены.</p>
+        <p class="footer__text">
+            Телефон: <a class="footer__link" href="tel:+78001234567">+7 (800) 123-45-67</a>
+        </p>
     </footer>
 
 </body>

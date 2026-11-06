@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Горный воздух — бронирование отелей</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page">
 
-    <header>
-        <h1>Отель «Горный воздух»</h1>
-        <p>Уют и комфорт в сердце гор</p>
+    <header class="header">
+        <h1 class="header__title">Отель «Горный воздух»</h1>
+        <p class="header__subtitle">Уют и комфорт в сердце гор</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html">Каталог номеров</a></li>
-            <li><a href="detail.html">Номер «Люкс»</a></li>
-            <li><a href="collection.html">Сравнение номеров</a></li>
-            <li><a href="checkout.html">Бронирование</a></li>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link nav__link--active" href="index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="catalog.html">Каталог номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="detail.html">Номер «Люкс»</a></li>
+            <li class="nav__item"><a class="nav__link" href="collection.html">Сравнение номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="checkout.html">Бронирование</a></li>
         </ul>
     </nav>
 
-    <main>
-        <section>
-            <h2>Добро пожаловать!</h2>
-            <p>
+    <main class="main">
+        <section class="section">
+            <h2 class="section__title">Добро пожаловать!</h2>
+            <p class="section__text">
                 Отель «Горный воздух» предлагает номера на любой вкус — от уютных
                 стандартов до просторных люксов с панорамным видом на горы.
                 Мы находимся в 15 минутах от горнолыжных трасс и в 5 минутах
@@ -33,39 +34,44 @@
             </p>
         </section>
 
-        <section>
-            <h2>Почему выбирают нас</h2>
-            <ul>
-                <li>Бесплатный завтрак «шведский стол»</li>
-                <li>Собственная парковка и трансфер</li>
-                <li>Спа-центр и бассейн с подогревом</li>
-                <li>Круглосуточная стойка регистрации</li>
+        <section class="section">
+            <h2 class="section__title">Почему выбирают нас</h2>
+            <ul class="features">
+                <li class="features__item">Бесплатный завтрак «шведский стол»</li>
+                <li class="features__item">Собственная парковка и трансфер</li>
+                <li class="features__item">Спа-центр и бассейн с подогревом</li>
+                <li class="features__item">Круглосуточная стойка регистрации</li>
             </ul>
         </section>
 
-        <section>
-            <h2>Наши номера</h2>
-            <article>
-                <h3>Стандарт</h3>
-                <p>Уютный номер с двуспальной кроватью, 18 м², вид на двор.</p>
-                <p><a href="catalog.html">Смотреть в каталоге</a></p>
+        <section class="section">
+            <h2 class="section__title">Наши номера</h2>
+            <article class="card card--preview">
+                <h3 class="card__title">Стандарт</h3>
+                <p class="card__text">Уютный номер с двуспальной кроватью, 18 м², вид на двор.</p>
+                <a class="card__link" href="catalog.html">Смотреть в каталоге</a>
             </article>
-            <article>
-                <h3>Люкс с видом на горы</h3>
-                <p>Просторный номер 42 м², панорамные окна, джакузи.</p>
-                <p><a href="detail.html">Подробнее</a></p>
+            <article class="card card--preview">
+                <h3 class="card__title">Люкс с видом на горы</h3>
+                <p class="card__text">Просторный номер 42 м², панорамные окна, джакузи.</p>
+                <a class="card__link" href="detail.html">Подробнее</a>
             </article>
         </section>
 
-        <aside>
-            <h2>Акция</h2>
-            <p>При бронировании от 3 ночей — скидка 15% по промокоду <strong>MOUNTAIN15</strong>.</p>
+        <aside class="promo">
+            <h2 class="promo__title">Акция</h2>
+            <p class="promo__text">
+                При бронировании от 3 ночей — скидка 15% по промокоду
+                <strong class="promo__code">MOUNTAIN15</strong>.
+            </p>
         </aside>
     </main>
 
-    <footer>
-        <p>© 2026 Отель «Горный воздух». Все права защищены.</p>
-        <p>Телефон: <a href="tel:+79625396668">+7 (962) 539-66-68</a></p>
+    <footer class="footer">
+        <p class="footer__text">© 2026 Отель «Горный воздух». Все права защищены.</p>
+        <p class="footer__text">
+            Телефон: <a class="footer__link" href="tel:+78001234567">+7 (800) 123-45-67</a>
+        </p>
     </footer>
 
 </body>

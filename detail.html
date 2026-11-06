@@ -4,35 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Номер «Люкс» — Горный воздух</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page">
 
-    <header>
-        <h1>Отель «Горный воздух»</h1>
-        <p>Номер «Люкс с видом на горы»</p>
+    <header class="header">
+        <h1 class="header__title">Отель «Горный воздух»</h1>
+        <p class="header__subtitle">Номер «Люкс с видом на горы»</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html">Каталог номеров</a></li>
-            <li><a href="detail.html">Номер «Люкс»</a></li>
-            <li><a href="collection.html">Сравнение номеров</a></li>
-            <li><a href="checkout.html">Бронирование</a></li>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="catalog.html">Каталог номеров</a></li>
+            <li class="nav__item"><a class="nav__link nav__link--active" href="detail.html">Номер «Люкс»</a></li>
+            <li class="nav__item"><a class="nav__link" href="collection.html">Сравнение номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="checkout.html">Бронирование</a></li>
         </ul>
     </nav>
 
-    <main>
-        <article>
-            <h2>Люкс с видом на горы</h2>
+    <main class="main">
+        <article class="room">
+            <h2 class="room__title">Люкс с видом на горы</h2>
 
-            <img src="images/lux.jpg"
-                 alt="Панорамное окно люкса с видом на горный хребет"
-                 width="600" height="400">
+            <div class="room__image-wrapper">
+                <img class="room__image" src="images/lux.jpg"
+                     alt="Панорамное окно люкса с видом на горный хребет">
+                <span class="room__rating">9.5 Превосходно</span>
+            </div>
 
-            <section>
-                <h3>Описание</h3>
-                <p>
+            <section class="section">
+                <h3 class="section__title">Описание</h3>
+                <p class="section__text">
                     Просторный двухкомнатный номер площадью 42 м² с панорамными
                     окнами, выходящими на горный хребет. В номере — гостиная зона
                     с диваном, спальня с кроватью king-size, ванная комната с
@@ -40,52 +43,56 @@
                 </p>
             </section>
 
-            <section>
-                <h3>Характеристики</h3>
-                <ul>
-                    <li>Площадь: 42 м²</li>
-                    <li>Тип кровати: king-size</li>
-                    <li>Вид: панорамный на горы</li>
-                    <li>Завтрак: включён</li>
-                    <li>Wi-Fi: бесплатно</li>
-                    <li>Кондиционер: есть</li>
-                    <li>Джакузи: есть</li>
+            <section class="section">
+                <h3 class="section__title">Характеристики</h3>
+                <ul class="features">
+                    <li class="features__item">Площадь: 42 м²</li>
+                    <li class="features__item">Тип кровати: king-size</li>
+                    <li class="features__item">Вид: панорамный на горы</li>
+                    <li class="features__item">Завтрак: включён</li>
+                    <li class="features__item">Wi-Fi: бесплатно</li>
+                    <li class="features__item">Кондиционер: есть</li>
+                    <li class="features__item">Джакузи: есть</li>
                 </ul>
             </section>
 
-            <section>
-                <h3>Галерея</h3>
-                <figure>
-                    <img src="images/lux-1.jpg" alt="Гостиная зона люкса с диваном" width="400" height="300">
-                    <figcaption>Гостиная зона</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/lux-2.jpg" alt="Спальня люкса с кроватью king-size" width="400" height="300">
-                    <figcaption>Спальня</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/lux-3.jpg" alt="Ванная комната люкса с джакузи" width="400" height="300">
-                    <figcaption>Ванная комната</figcaption>
-                </figure>
+            <section class="section">
+                <h3 class="section__title">Галерея</h3>
+                <div class="gallery">
+                    <figure class="gallery__item">
+                        <img class="gallery__image" src="images/lux-1.jpg" alt="Гостиная зона люкса с диваном">
+                        <figcaption class="gallery__caption">Гостиная зона</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img class="gallery__image" src="images/lux-2.jpg" alt="Спальня люкса с кроватью king-size">
+                        <figcaption class="gallery__caption">Спальня</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img class="gallery__image" src="images/lux-3.jpg" alt="Ванная комната люкса с джакузи">
+                        <figcaption class="gallery__caption">Ванная комната</figcaption>
+                    </figure>
+                </div>
             </section>
 
-            <p><strong>Цена: 9 800 ₽ / ночь</strong></p>
-            <p><a href="checkout.html">Забронировать</a></p>
+            <p class="room__price">9 800 ₽ / ночь</p>
+            <a class="button button--primary" href="checkout.html">Забронировать</a>
         </article>
 
-        <aside>
-            <h3>Похожие номера</h3>
-            <ul>
-                <li><a href="catalog.html">Стандарт</a></li>
-                <li><a href="catalog.html">Комфорт</a></li>
-                <li><a href="catalog.html">Семейный</a></li>
+        <aside class="sidebar">
+            <h3 class="sidebar__title">Похожие номера</h3>
+            <ul class="sidebar__list">
+                <li class="sidebar__item"><a class="sidebar__link" href="catalog.html">Стандарт</a></li>
+                <li class="sidebar__item"><a class="sidebar__link" href="catalog.html">Комфорт</a></li>
+                <li class="sidebar__item"><a class="sidebar__link" href="catalog.html">Семейный</a></li>
             </ul>
         </aside>
     </main>
 
-    <footer>
-        <p>© 2026 Отель «Горный воздух». Все права защищены.</p>
-        <p>Телефон: <a href="tel:+79625396668">+7 (962) 539-66-68</a></p>
+    <footer class="footer">
+        <p class="footer__text">© 2026 Отель «Горный воздух». Все права защищены.</p>
+        <p class="footer__text">
+            Телефон: <a class="footer__link" href="tel:+78001234567">+7 (800) 123-45-67</a>
+        </p>
     </footer>
 
 </body>

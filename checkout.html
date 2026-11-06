@@ -4,127 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бронирование — Горный воздух</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page">
 
-    <header>
-        <h1>Отель «Горный воздух»</h1>
-        <p>Бронирование номера</p>
+    <header class="header">
+        <h1 class="header__title">Отель «Горный воздух»</h1>
+        <p class="header__subtitle">Бронирование номера</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html">Каталог номеров</a></li>
-            <li><a href="detail.html">Номер «Люкс»</a></li>
-            <li><a href="collection.html">Сравнение номеров</a></li>
-            <li><a href="checkout.html">Бронирование</a></li>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="catalog.html">Каталог номеров</a></li>
+            <li class="nav__item"><a class="nav__link" href="detail.html">Номер «Люкс»</a></li>
+            <li class="nav__item"><a class="nav__link" href="collection.html">Сравнение номеров</a></li>
+            <li class="nav__item"><a class="nav__link nav__link--active" href="checkout.html">Бронирование</a></li>
         </ul>
     </nav>
 
-    <main>
-        <h2>Ввод данных гостей</h2>
+    <main class="main">
+        <h2 class="main__title">Ввод данных гостей</h2>
 
-        <section>
-            <form action="#" method="post">
+        <section class="section">
+            <form class="form" action="#" method="post">
 
-                <p>
-                    <label for="room-type">Категория номера:</label><br>
-                    <select id="room-type" name="room_type" required>
+                <div class="form__group">
+                    <label class="form__label" for="room-type">Категория номера:</label>
+                    <select class="form__select" id="room-type" name="room_type" required>
                         <option value="">— выберите номер —</option>
                         <option value="standard">Стандарт</option>
                         <option value="comfort">Комфорт</option>
                         <option value="family">Семейный</option>
                         <option value="lux">Люкс</option>
                     </select>
-                </p>
+                </div>
 
-                <p>
-                    <label for="adults">Количество взрослых:</label><br>
-                    <input type="number" id="adults" name="adults"
+                <div class="form__group">
+                    <label class="form__label" for="adults">Количество взрослых:</label>
+                    <input class="form__input" type="number" id="adults" name="adults"
                            min="1" max="6" value="2" required>
-                </p>
+                </div>
 
-                <p>
-                    <label for="children">Количество детей:</label><br>
-                    <input type="number" id="children" name="children"
+                <div class="form__group">
+                    <label class="form__label" for="children">Количество детей:</label>
+                    <input class="form__input" type="number" id="children" name="children"
                            min="0" max="4" value="0">
-                </p>
+                </div>
 
-                <p>
-                    <label for="checkin">Дата заезда:</label><br>
-                    <input type="date" id="checkin" name="checkin" required>
-                </p>
+                <div class="form__group">
+                    <label class="form__label" for="checkin">Дата заезда:</label>
+                    <input class="form__input" type="date" id="checkin" name="checkin" required>
+                </div>
 
-                <p>
-                    <label for="checkout">Дата выезда:</label><br>
-                    <input type="date" id="checkout" name="checkout" required>
-                </p>
+                <div class="form__group">
+                    <label class="form__label" for="checkout">Дата выезда:</label>
+                    <input class="form__input" type="date" id="checkout" name="checkout" required>
+                </div>
 
-                <p>
-                    <label for="promo">Промокод (необязательно):</label><br>
-                    <input type="text" id="promo" name="promo"
+                <div class="form__group">
+                    <label class="form__label" for="promo">Промокод (необязательно):</label>
+                    <input class="form__input" type="text" id="promo" name="promo"
                            pattern="[A-Za-z0-9]{4,12}"
                            title="4–12 латинских букв или цифр">
-                </p>
+                </div>
 
-                <p>
-                    <label for="email">Email для подтверждения:</label><br>
-                    <input type="email" id="email" name="email"
+                <div class="form__group">
+                    <label class="form__label" for="email">Email для подтверждения:</label>
+                    <input class="form__input" type="email" id="email" name="email"
                            placeholder="you@example.com" required>
-                </p>
+                </div>
 
-                <p>
-                    <label for="phone">Контактный телефон:</label><br>
-                    <input type="tel" id="phone" name="phone"
+                <div class="form__group">
+                    <label class="form__label" for="phone">Контактный телефон:</label>
+                    <input class="form__input" type="tel" id="phone" name="phone"
                            pattern="\+7[0-9]{10}"
                            placeholder="+7XXXXXXXXXX"
                            title="Формат: +7 и 10 цифр" required>
-                </p>
+                </div>
 
-                <fieldset>
-                    <legend>Способ оплаты:</legend>
-                    <p>
-                        <input type="radio" id="pay-card" name="payment" value="card" checked>
-                        <label for="pay-card">Банковская карта</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="pay-cash" name="payment" value="cash">
-                        <label for="pay-cash">Наличные при заселении</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="pay-online" name="payment" value="online">
-                        <label for="pay-online">Онлайн-перевод</label>
-                    </p>
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend">Способ оплаты:</legend>
+                    <div class="form__radio-group">
+                        <input class="form__radio" type="radio" id="pay-card" name="payment" value="card" checked>
+                        <label class="form__radio-label" for="pay-card">Банковская карта</label>
+                    </div>
+                    <div class="form__radio-group">
+                        <input class="form__radio" type="radio" id="pay-cash" name="payment" value="cash">
+                        <label class="form__radio-label" for="pay-cash">Наличные при заселении</label>
+                    </div>
+                    <div class="form__radio-group">
+                        <input class="form__radio" type="radio" id="pay-online" name="payment" value="online">
+                        <label class="form__radio-label" for="pay-online">Онлайн-перевод</label>
+                    </div>
                 </fieldset>
 
-                <p>
-                    <input type="checkbox" id="breakfast" name="breakfast" value="yes" checked>
-                    <label for="breakfast">Нужен завтрак в номер</label>
-                </p>
-                <p>
-                    <input type="checkbox" id="agree" name="agree" value="yes" required>
-                    <label for="agree">Согласен с правилами бронирования</label>
-                </p>
+                <div class="form__group form__group--checkbox">
+                    <input class="form__checkbox" type="checkbox" id="breakfast" name="breakfast" value="yes" checked>
+                    <label class="form__checkbox-label" for="breakfast">Нужен завтрак в номер</label>
+                </div>
+                <div class="form__group form__group--checkbox">
+                    <input class="form__checkbox" type="checkbox" id="agree" name="agree" value="yes" required>
+                    <label class="form__checkbox-label" for="agree">Согласен с правилами бронирования</label>
+                </div>
 
-                <p>
-                    <label for="comment">Комментарий к бронированию:</label><br>
-                    <textarea id="comment" name="comment" rows="4" cols="40"
+                <div class="form__group">
+                    <label class="form__label" for="comment">Комментарий к бронированию:</label>
+                    <textarea class="form__textarea" id="comment" name="comment" rows="4"
                               placeholder="Например: поздний заезд, детская кроватка..."></textarea>
-                </p>
+                </div>
 
-                <p>
-                    <button type="submit">Забронировать</button>
-                    <button type="reset">Очистить</button>
-                </p>
+                <div class="form__actions">
+                    <button class="button button--primary" type="submit">Забронировать</button>
+                    <button class="button button--secondary" type="reset">Очистить</button>
+                </div>
 
             </form>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Отель «Горный воздух». Все права защищены.</p>
-        <p>Телефон: <a href="tel:+79625396668">+7 (962) 539-66-68</a></p>
+    <footer class="footer">
+        <p class="footer__text">© 2026 Отель «Горный воздух». Все права защищены.</p>
+        <p class="footer__text">
+            Телефон: <a class="footer__link" href="tel:+78001234567">+7 (800) 123-45-67</a>
+        </p>
     </footer>
 
 </body>

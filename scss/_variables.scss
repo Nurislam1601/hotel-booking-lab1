@@ -1,0 +1,43 @@
+// ============================================================
+// Переменные проекта — цвета, шрифты, отступы
+// ============================================================
+
+// Цвета — основная палитра
+$color-primary: #2a6f97;          // основной синий (кнопки, ссылки)
+$color-primary-dark: #1e5473;     // тёмный синий (hover)
+$color-secondary: #e0e8f0;        // светло-голубой (фоны)
+$color-accent: #f0a500;           // акцент (рейтинг, бейджи)
+$color-text: #222222;             // основной текст
+$color-text-muted: #666666;       // второстепенный текст
+$color-bg: #f7f9fb;               // фон страницы
+$color-bg-alt: #ffffff;           // фон карточек
+$color-border: #d4dde6;           // рамки
+$color-rating: #2e7d32;           // зелёный для рейтинга
+$color-rating-bg: rgba(46, 125, 50, 0.92);
+
+// Шрифты
+$font-main: "Segoe UI", "Roboto", Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 20px;
+$font-size-h1: 32px;
+$font-size-h2: 26px;
+$font-size-h3: 20px;
+$line-height-base: 1.5;
+
+// Отступы
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 40px;
+
+// Прочее
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$max-width: 1100px;

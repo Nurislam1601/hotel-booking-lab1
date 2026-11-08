@@ -1,9 +1,12 @@
 // ============================================================
-// Блоки (по методологии БЭМ)
+// Блоки (БЭМ + Grid + Flexbox + Адаптив)
 // ============================================================
 
-// ---------- Страница ----------
+// ---------- Страница (Макросетка Grid) ----------
 .page {
+    display: grid;
+    /* Шапка (auto), Контент (1fr), Подвал (auto) */
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     background-color: $color-bg;
 }
@@ -28,7 +31,7 @@
     }
 }
 
-// ---------- Навигация ----------
+// ---------- Навигация (Микросетка Flexbox) ----------
 .nav {
     background-color: $color-primary-dark;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -37,14 +40,17 @@
         max-width: $max-width;
         margin: 0 auto;
         padding: 0 $space-md;
+        display: flex;
+        flex-wrap: wrap; /* Разрешаем перенос на мобильных */
+        gap: $space-xs;
     }
 
     &__item {
-        display: inline-block;
+        /* Убрали inline-block, теперь flex управляет */
     }
 
     &__link {
-        display: inline-block;
+        display: block;
         padding: $space-sm $space-md;
         color: #ffffff;
         font-size: $font-size-small;
@@ -59,11 +65,18 @@
             background-color: rgba(255, 255, 255, 0.2);
             font-weight: 600;
         }
+        
+        /* Доступность (a11y) */
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: -2px;
+        }
     }
 }
 
 // ---------- Основной контент ----------
 .main {
+    width: 100%;
     max-width: $max-width;
     margin: 0 auto;
     padding: $space-lg $space-md $space-xl;
@@ -114,13 +127,25 @@
     }
 }
 
-// ---------- Карточка номера ----------
+// ---------- Сетка каталога (Макросетка Grid) ----------
+.catalog {
+    display: grid;
+    /* Адаптивная сетка без медиазапросов */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $space-lg;
+    margin-bottom: $space-xl;
+}
+
+// ---------- Карточка номера (Микросетка Flexbox) ----------
 .card {
+    display: flex;
+    flex-direction: column; /* Элементы друг под другом */
+    height: 100%; /* Растягиваем на всю высоту ячейки Grid */
+    
     background-color: $color-bg-alt;
     border: 1px solid $color-border;
     border-radius: $radius-md;
     overflow: hidden;
-    margin-bottom: $space-lg;
     box-shadow: $shadow-sm;
     transition: box-shadow $transition-base, transform $transition-base;
 
@@ -137,7 +162,7 @@
     &__image {
         width: 100%;
         height: 220px;
-        object-fit: cover;
+        object-fit: cover; /* Адаптивная графика */
         display: block;
     }
 
@@ -155,6 +180,9 @@
     }
 
     &__body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Тело занимает всё свободное место */
         padding: $space-md;
     }
 
@@ -170,11 +198,24 @@
         margin-bottom: $space-md;
     }
 
+    /* ВАРИАНТ 13: Рейтинг в ряд через Flexbox */
+    &__stars {
+        display: flex;
+        align-items: center;
+        gap: $space-xs;
+        margin-bottom: $space-sm;
+        color: $color-accent;
+        font-weight: 600;
+    }
+
     &__price {
         font-size: $font-size-large;
         font-weight: 700;
         color: $color-primary;
         margin-bottom: $space-md;
+        
+        /* ВАРИАНТ 13: Прижимаем цену к низу карточки */
+        margin-top: auto; 
     }
 
     &__link {
@@ -188,6 +229,11 @@
         &:hover {
             color: $color-primary-dark;
         }
+        
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 2px;
+        }
     }
 
     &--preview {
@@ -199,7 +245,7 @@
     }
 }
 
-// ---------- Панель фильтров ----------
+// ---------- Панель фильтров (sticky из ЛР2) ----------
 .filters {
     background-color: $color-bg-alt;
     border: 1px solid $color-border;
@@ -212,20 +258,19 @@
     z-index: 10;
 
     &__form {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: $space-sm;
     }
 
     &__label {
-        display: inline-block;
-        margin-right: $space-sm;
         font-size: $font-size-small;
         color: $color-text-muted;
         font-weight: 600;
     }
 
     &__input {
-        display: inline-block;
-        margin-right: $space-md;
         padding: $space-xs $space-sm;
         border: 1px solid $color-border;
         border-radius: $radius-sm;
@@ -496,10 +541,6 @@
 
     &__group {
         margin-bottom: $space-md;
-
-        &--checkbox {
-            padding-left: 0;
-        }
     }
 
     &__label {
@@ -599,7 +640,6 @@
     color: #ffffff;
     padding: $space-lg $space-md;
     text-align: center;
-    margin-top: $space-xl;
 
     &__text {
         font-size: $font-size-small;
@@ -616,5 +656,49 @@
         &:hover {
             color: #ffffff;
         }
+    }
+}
+
+// ============================================================
+// АДАПТИВНОСТЬ (Mobile First)
+// ============================================================
+
+/* Планшеты (от 768px) */
+@media (min-width: 768px) {
+    .header {
+        text-align: left;
+        padding: $space-lg $space-xl;
+    }
+
+    .main {
+        padding: $space-xl;
+    }
+
+    /* Форма на планшетах и ПК можно сделать в 2 колонки через Grid (по желанию) */
+    .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-md;
+        
+        &__group {
+            margin-bottom: 0;
+        }
+        
+        &__group--checkbox, 
+        &__actions,
+        &__fieldset {
+            grid-column: 1 / -1; /* Растягиваем на всю ширину */
+        }
+    }
+}
+
+/* Настольные ПК (от 1200px) */
+@media (min-width: 1200px) {
+    .header__title {
+        font-size: 40px;
+    }
+
+    .header__subtitle {
+        font-size: $font-size-base;
     }
 }

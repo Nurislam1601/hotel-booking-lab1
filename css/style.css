@@ -52,6 +52,9 @@ button {
 }
 
 .page {
+  display: grid;
+  /* Шапка (auto), Контент (1fr), Подвал (auto) */
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   background-color: #f7f9fb;
 }
@@ -81,12 +84,15 @@ button {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 16px;
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос на мобильных */
+  gap: 4px;
 }
 .nav__item {
-  display: inline-block;
+  /* Убрали inline-block, теперь flex управляет */
 }
 .nav__link {
-  display: inline-block;
+  display: block;
   padding: 8px 16px;
   color: #ffffff;
   font-size: 14px;
@@ -100,8 +106,16 @@ button {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: 600;
 }
+.nav__link {
+  /* Доступность (a11y) */
+}
+.nav__link:focus-visible {
+  outline: 2px solid #f0a500;
+  outline-offset: -2px;
+}
 
 .main {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 24px 16px 40px;
@@ -145,12 +159,22 @@ button {
   font-weight: 700;
 }
 
+.catalog {
+  display: grid;
+  /* Адаптивная сетка без медиазапросов */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
 .card {
+  display: flex;
+  flex-direction: column; /* Элементы друг под другом */
+  height: 100%; /* Растягиваем на всю высоту ячейки Grid */
   background-color: #ffffff;
   border: 1px solid #d4dde6;
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -165,7 +189,7 @@ button {
 .card__image {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: cover; /* Адаптивная графика */
   display: block;
 }
 .card__rating {
@@ -181,6 +205,9 @@ button {
   z-index: 2;
 }
 .card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Тело занимает всё свободное место */
   padding: 16px;
 }
 .card__title {
@@ -193,11 +220,24 @@ button {
   color: #666666;
   margin-bottom: 16px;
 }
+.card {
+  /* ВАРИАНТ 13: Рейтинг в ряд через Flexbox */
+}
+.card__stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  color: #f0a500;
+  font-weight: 600;
+}
 .card__price {
   font-size: 20px;
   font-weight: 700;
   color: #2a6f97;
   margin-bottom: 16px;
+  /* ВАРИАНТ 13: Прижимаем цену к низу карточки */
+  margin-top: auto;
 }
 .card__link {
   display: inline-block;
@@ -209,6 +249,10 @@ button {
 }
 .card__link:hover {
   color: #1e5473;
+}
+.card__link:focus-visible {
+  outline: 2px solid #f0a500;
+  outline-offset: 2px;
 }
 .card--preview {
   padding: 16px;
@@ -229,18 +273,17 @@ button {
   z-index: 10;
 }
 .filters__form {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 .filters__label {
-  display: inline-block;
-  margin-right: 8px;
   font-size: 14px;
   color: #666666;
   font-weight: 600;
 }
 .filters__input {
-  display: inline-block;
-  margin-right: 16px;
   padding: 4px 8px;
   border: 1px solid #d4dde6;
   border-radius: 4px;
@@ -467,9 +510,6 @@ button {
 .form__group {
   margin-bottom: 16px;
 }
-.form__group--checkbox {
-  padding-left: 0;
-}
 .form__label {
   display: block;
   font-size: 14px;
@@ -548,7 +588,6 @@ button {
   color: #ffffff;
   padding: 24px 16px;
   text-align: center;
-  margin-top: 40px;
 }
 .footer__text {
   font-size: 14px;
@@ -562,4 +601,36 @@ button {
 }
 .footer__link:hover {
   color: #ffffff;
+}
+
+/* Планшеты (от 768px) */
+@media (min-width: 768px) {
+  .header {
+    text-align: left;
+    padding: 24px 40px;
+  }
+  .main {
+    padding: 40px;
+  }
+  /* Форма на планшетах и ПК можно сделать в 2 колонки через Grid (по желанию) */
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form__group {
+    margin-bottom: 0;
+  }
+  .form__group--checkbox, .form__actions, .form__fieldset {
+    grid-column: 1/-1; /* Растягиваем на всю ширину */
+  }
+}
+/* Настольные ПК (от 1200px) */
+@media (min-width: 1200px) {
+  .header__title {
+    font-size: 40px;
+  }
+  .header__subtitle {
+    font-size: 16px;
+  }
 }
